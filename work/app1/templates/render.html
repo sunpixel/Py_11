@@ -1,56 +1,33 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Render Data</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
-    <header>
-        <h1>Data List</h1>
-        <nav>
-            <ul>
-                <li><a href="/app1/">Home</a></li>
-                <li><a href="/app1/about">About</a></li>
-                <li><a href="/app1/contact">Contact</a></li>
-                <li><a href="/app1/data">Data List</a></li>
-                <li><a href="/app1/render">Render Data</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>List of Data</h2>
-            {% if data %}
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>City</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for d in data %}
-                        <tr>
-                            <td>{{ d.id }}</td>
-                            <td>{{ d.name }}</td>
-                            <td>{{ d.age }}</td>
-                            <td>{{ d.city }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            {% else %}
-                <p>No data available.</p>
-            {% endif %}
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Pixel Entertainment</p>
-    </footer>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Render Data{% endblock %}
+{% block header %}Render Data{% endblock %}
+{% block content %}
+    <section>
+        <h2>List of Data</h2>
+        <p>Total items: {{ data|length }}</p>
+        {% if data %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in data %}
+                <tr>
+                    <td>{{ d.id }}</td>
+                    <td>{{ d.name | upper }}</td>
+                    <td>{{ d.age }}</td>
+                    <td>{{ d.city }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No data available.</p>
+        {% endif %}
+    </section>
+{% endblock %}

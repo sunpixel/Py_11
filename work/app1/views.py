@@ -28,4 +28,6 @@ def render_data(request):
         {'id': 3, 'name': 'Mike Johnson', 'age': 45, 'city': 'Chicago'},
         {'id': 4, 'name': 'Emily Davis', 'age': 22, 'city': 'London'},
     ]
+    # Test empty data
+    #data = []
     return render(request, 'render.html', {'data': data})

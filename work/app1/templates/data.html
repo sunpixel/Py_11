@@ -1,37 +1,11 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data List</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
-    <header>
-        <h1>Data List</h1>
-        <nav>
-            <ul>
-                <li><a href="/app1/">Home</a></li>
-                <li><a href="/app1/about">About</a></li>
-                <li><a href="/app1/contact">Contact</a></li>
-                <li><a href="/app1/data">Data List</a></li>
-                <li><a href="/app1/render">Render Data</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>List of Data</h2>
-            <ul>
-                {% for item in data %}
-                    <li>{{ item }}</li>
-                {% endfor %}
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Pixel Entertainment</p>
-    </footer>
-</body>
-</html>
+{%extends 'base.html'%}
+{%block title%}Data List{%endblock%}
+{%block header%}Data List{%endblock%}
+{%block content%}
+    <h1>Data List</h1>
+    <ul>
+        {%for item in data%}
+            <li>{{item}}</li>
+        {%endfor%}
+    </ul>
+{%endblock%}

@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
+from django.views.generic import TemplateView
+
 from app1 import views
 
 app1_patters = [
@@ -24,6 +26,7 @@ app1_patters = [
     path('contact/', views.contact),
     path('data/', views.data_list),
     path('render/', views.render_data),
+    path('links/', TemplateView.as_view(template_name='HomeView.html')),
 ]
 
 
